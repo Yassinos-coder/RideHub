@@ -1,8 +1,7 @@
 {
-  "name": "Server",
+  "name": "server",
   "version": "1.0.0",
   "main": "index.ts",
-  "license": "MIT",
   "dependencies": {
     "@types/express": "^5.0.1",
     "@types/node": "^22.14.1",
@@ -11,5 +10,26 @@
     "express": "^5.1.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
+  },
+  "author": {
+    "name": "Yassine Casto",
+    "email": "yassinecastro@proton.me",
+    "url": "https://github.com/Yassinos-coder/RideHub"
+  },
+  "license": "UNLICENSED",
+  "description": "Backend server for RideHub - A ride-sharing application",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yassinos-coder/RideHub"
+  },
+  "copyright": "Under-copyright work - do not use without permission",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "dev": "nodemon --exec ts-node index.ts",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "nodemon": "^3.1.0"
   }
 }

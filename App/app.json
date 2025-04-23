@@ -14,13 +14,36 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "RideHub needs access to your photos to allow you to upload profile pictures and share ride images.",
+        "NSLocationWhenInUseUsageDescription": "RideHub needs access to your location to find rides near you and track journeys.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "RideHub needs background access to your location to provide real-time navigation and ride tracking features.",
+        "NSLocationAlwaysUsageDescription": "RideHub needs background access to your location to provide real-time navigation and ride tracking features.",
+        "NSContactsUsageDescription": "RideHub needs access to your contacts to help you find friends who use the app and share rides.",
+        "NSFileProviderDomainUsageDescription": "RideHub needs access to file storage to save ride information and user data.",
+        "NSMotionUsageDescription": "RideHub needs access to motion and sensor data to detect ride status and improve ride quality detection."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "INTERNET",
+        "ACCESS_NETWORK_STATE",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "READ_MEDIA_IMAGES",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION",
+        "READ_CONTACTS",
+        "READ_PHONE_STATE",
+        "BATTERY_STATS",
+        "BODY_SENSORS"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png",
