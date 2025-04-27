@@ -2,10 +2,10 @@ import { Stack } from "expo-router";
 
 const RootLayout = () => {
   return (
-    <Stack>
+    <Stack initialRouteName="Screens/AuthScreen">
       <Stack.Screen
-        name="user/[id]"
-        options={{ headerTitle: "User Profile" }}
+        name="Screens/AuthScreen"
+        options={{ headerShown: false }}
       />
     </Stack>
   );
