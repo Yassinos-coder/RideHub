@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
-import { UserModel } from "../models/userModel";
+import  UserModel  from "../models/userModel";
 import { signToken } from "../middlewares/jwtAuth";
 
-export const Register = async (req: Request, res: Response) => {
+export const Signup = async (req: Request, res: Response) => {
   const newUser = req.body;
 
   try {
@@ -19,6 +19,7 @@ export const Register = async (req: Request, res: Response) => {
     const token = signToken({ id: user._id });
 
     res.status(201).json({ user, token });
+    return;
   } catch (err: any) {
     console.error("Error in register controller", err.message);
     res.status(500).json({ message: "Server error", error: err.message });

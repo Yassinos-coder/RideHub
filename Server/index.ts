@@ -5,7 +5,7 @@ import helmet from "helmet";
 import mongoose from "mongoose";
 import rateLimit from "express-rate-limit";
 import multer from "multer";
-
+import { router } from "./routes/UserRoutes";
 dotenv.config();
 
 // Init Express App
@@ -58,6 +58,9 @@ mongoose
     console.error("MongoDB connection error:", err);
     process.exit(1);
   });
+
+// Routes
+server.use("/api/users", router);
 
 // Start Server
 const port: string = process.env.BACK_END || "8009";

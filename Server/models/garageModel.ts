@@ -23,4 +23,5 @@ const garageSchema = new mongoose.Schema(
   }
 );
 
-export const garageModel = mongoose.model("UserGarage", garageSchema);
+const garageModel = mongoose.model("UserGarage", garageSchema);
+export default garageModel;
