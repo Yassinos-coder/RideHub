@@ -9,7 +9,7 @@ export const Signup = async (req: Request, res: Response) => {
   try {
     const existingUser = await UserModel.findOne({ email: newUser.email });
     if (existingUser) {
-      return res.status(400).json({ message: "Email already in use" });
+      return res.status(400).json({ message: "Email_exists" });
     }
 
     const hashedPassword = await bcrypt.hash(newUser.password, 10);
@@ -21,7 +21,7 @@ export const Signup = async (req: Request, res: Response) => {
     res.status(201).json({ user, token });
     return;
   } catch (err: any) {
-    console.error("Error in register controller", err.message);
+    console.error("Server error in register controller", err.message);
     res.status(500).json({ message: "Server error", error: err.message });
   }
 };
