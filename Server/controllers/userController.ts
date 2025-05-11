@@ -2,6 +2,8 @@ import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
 import UserModel from "../models/userModel";
 import { signToken } from "../middlewares/jwtAuth";
+import sendEmail from '../middlewares/sendEmail'
+import {UserSignupHtmlTemplate} from '../configs/EmailTemplates/UserSignupHtmlTemplate'
 
 export const Signup = async (req: Request, res: Response) => {
   const newUser = req.body;
@@ -17,6 +19,12 @@ export const Signup = async (req: Request, res: Response) => {
 
     const user = await UserModel.create(newUser);
     const token = signToken({ id: user._id });
+    const emailArgs = {
+      recipient: newUser.email,
+      subject: 'Ride Hub account created succesfuly',
+      message: UserSignupHtmlTemplate
+    }
+    // sendEmail(emailArgs)
 
     res.status(201).json({ user, token });
     return;
@@ -56,3 +64,7 @@ export const Signin = async (req: Request, res: Response) => {
       .json({ message: "Server error", error: err.message });
   }
 };
+
+export const verifyUserByEmail = async() => {
+  
+}
